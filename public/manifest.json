@@ -1,0 +1,28 @@
+{
+  "name": "Studio UI enhancer",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "description": "Adds some new functionality to Studio UI.",
+  "update_url": "https://web.o-nix.me/studio-ui-enhancer/updates.xml",
+  "icons": {
+    "128": "icon128.png"
+  },
+  "permissions": [
+    "clipboardWrite"
+  ],
+  "host_permissions": [
+    "https://cloud.hypatos.ai/*",
+    "https://cloud.hypatos.com/*"
+  ],
+  "content_scripts": [
+    {
+      "js": [
+        "studio-ui-enhancer-extension.iife.js"
+      ],
+      "matches": [
+        "https://cloud.hypatos.ai/*",
+        "https://cloud.hypatos.com/*"
+      ]
+    }
+  ]
+}
