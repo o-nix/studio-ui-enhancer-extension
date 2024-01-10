@@ -57,7 +57,24 @@ function App() {
         'variables': {
           'projectShortId': projectSlug
         },
-        'query': 'query ProjectSchema($projectShortId: ID!) {\n  projectByShortId(projectShortId: $projectShortId) {\n    id\n    schema {\n      version\n      features {\n        derivation\n        \n      }\n      normalization\n      dataPoints\n      \n    }\n    \n  }\n}'
+        'query': `
+query ProjectSchema($projectShortId: ID!) {
+  projectByShortId(projectShortId: $projectShortId) {
+    id
+    schema {
+      version
+      enrichment {
+        compositeEnrichmentId
+      }
+      features {
+        derivation
+      }
+      normalization
+      dataPoints
+    }
+  }
+}
+`.trim()
       })
     })
       .then(res => res.json())
